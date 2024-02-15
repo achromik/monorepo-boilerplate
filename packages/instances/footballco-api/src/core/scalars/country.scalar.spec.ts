@@ -1,5 +1,6 @@
 import { Kind, ValueNode } from 'graphql';
-import { Countries } from '../../interfaces/enums';
+
+import { Countries } from '../enums/countries';
 import { CountryScalar } from './country.scalar';
 
 describe('CountryScalar', () => {
