@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
+  "packages": ["packages/lambdas/*", "packages/libs/*", "packages/instances/*"],
+  "npmClient": "yarn",
+  "changelogPreset": "conventionalcommits",
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com",
+      "message": "chore: release",
+      "conventionalCommits": true,
+      "ignoreChanges": [
+        "**/dist/**",
+        "*.spec.ts",
+        ".*",
+        "**/.*",
+        "tsconfig.*.*",
+        "tsconfig.*",
+        "*.md",
+        "**/*.md",
+        "terraform/**",
+        "*.json"
+      ]
+    }
+  }
+}
