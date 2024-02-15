@@ -2,10 +2,45 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""Country: valid ISO-3166-1 alpha-2 country string"""
+scalar CountryScalar
+
+"""Date (YYYY-MM-DD format) custom scalar type"""
+scalar DateScalar
+
+"""Edition custom scalar type"""
+scalar EditionScalar
+
+"""Environment name. Defaults to live"""
+enum EnvironmentName {
+  LIVE
+  PREVIEW
+}
+
 type LiveScoresPage {
   foo: String!
 }
 
 type Query {
-  liveScoresPage: LiveScoresPage!
+  liveScoresPage(
+    country: CountryScalar!
+
+    """Date to query in YYYY-MM-DD format, please note tzOffset argument"""
+    date: DateScalar!
+    edition: EditionScalar!
+    environment: EnvironmentName! = LIVE
+
+    """Only live"""
+    onlyLive: Boolean! = false
+
+    """
+    Date timezone offset in minutes, can range from -720 to 840, only multiples of 15.
+    """
+    tzOffset: TimezoneOffsetScalar! = 0
+  ): LiveScoresPage!
 }
+
+"""
+Date timezone offset in minutes, can range from -720 to 840, only multiples of 15.
+"""
+scalar TimezoneOffsetScalar

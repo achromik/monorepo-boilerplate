@@ -4,11 +4,20 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 
+import { CountryScalar } from '../../core/scalars/country.scalar';
+import { DateScalar } from '../../core/scalars/date.scalar';
+import { EditionScalar } from '../../core/scalars/edition.scalar';
+import { TimezoneOffsetScalar } from '../../core/scalars/timezone-offset.scalar';
 import { LiveScoresPageModule } from '../../pages/live-scores/live-scores-page.module';
 
 const GRAPHQL_MODULES = [LiveScoresPageModule];
 
-const SCALARS = [];
+const SCALARS = [
+  CountryScalar,
+  DateScalar,
+  EditionScalar,
+  TimezoneOffsetScalar,
+];
 
 const RESOLVERS = [];
 

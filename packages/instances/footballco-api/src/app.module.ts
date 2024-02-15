@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import graphqlConfig from './config/graphql.config';
+import * as Joi from 'joi';
+
+import editionConfig from './core/config/edition.config';
+import graphqlConfig from './core/config/graphql.config';
+import { Portals } from './core/enums/portals';
 import { FCGraphqlModule } from './routes/graphql/graphql.module';
 import { HealthModule } from './routes/health/health.module';
 
@@ -8,7 +12,15 @@ import { HealthModule } from './routes/health/health.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [graphqlConfig],
+      load: [graphqlConfig, editionConfig],
+      validationSchema: Joi.object({
+        PORTAL: Joi.string()
+          .valid(...Object.keys(Portals))
+          .required(),
+      }),
+      validationOptions: {
+        abortEarly: true,
+      },
     }),
     HealthModule,
     FCGraphqlModule,
