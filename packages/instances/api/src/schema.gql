@@ -1,0 +1,10 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Date (YYYY-MM-DD format) custom scalar type"""
+scalar DateScalar
+
+type Query {
+  helloQuery: String!
+}
