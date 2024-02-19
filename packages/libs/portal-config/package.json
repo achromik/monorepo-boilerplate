@@ -1,0 +1,13 @@
+{
+  "name": "@dazn-footballco/platform-portal-config",
+  "version": "1.0.0",
+  "description": "Configuration files for each portal (eg. GOAL, Voetbalzone, SPOX, Calciomercato)",
+  "homepage": "",
+  "license": "ISC",
+  "author": "",
+  "main": "dist/index.js",
+  "scripts": {},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
